@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="./view.js" defer type="module"></script>
+    <style>
+      body {
+        background-color: rgba(212, 212, 212, 0.712);
+      }
+      h1 {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 40px;
+      }
+      #container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 40px;
+        padding-right: 40px;
+        gap: 15px;
+      }
+
+      #pdfContainer {
+        box-shadow: 10px 25px 50px 25px rgba(0, 0, 0, 0.562);
+        margin-bottom: 20px;
+      }
+
+      #pdfContainer canvas {
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+      }
+
+      #fieldsContainer {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 95vh;
+        overflow-y: auto;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+      }
+      #fieldsContainer h4 {
+        text-align: center;
+        background-color: rgba(212, 212, 212, 0.712);
+        color: black;
+        padding: 5px;
+        margin: 5px;
+      }
+      
+      #fields {
+        width: 350px;
+        list-style-type: none; /* Remove bullet points */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+      }
+
+      #fields li {
+        width: 100%;
+        margin: 5px; /* Add margin between list items */
+        padding: 5px;
+
+      }
+      #fields li input{
+        width: 100%;
+        color: white;
+        background-color: rgb(56, 56, 56);
+      }
+      #fields li input:focus{
+        color: white;
+        font-weight: bold;
+        border: 0.5px solid white;
+        background-color: rgb(56, 56, 56);
+      }
+
+      button {
+        color: rgb(0, 0, 0);
+        background-color: rgb(180, 180, 180);
+        height: 40px;
+        margin: 25px;
+        font-size: 15px;
+        font-weight: bolder;
+        padding: 5px;
+        width: 150px;
+      }
+      button:hover {
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading" style="display: flex; justify-content: center; align-items: center; "></h1>
+    <div id="container">
+      <div id="fieldsContainer">
+        <h4>Click on any of the inputs below to rename fields. After making all the changes click on "Save" at the right side to save your changes. Press "Download" download the saved PDF</h4>
+        <ul id="fields"></ul>
+      </div>
+      <div id="pdfContainer" style="margin-top: 10px">
+        <!-- PDF will be rendered here -->
+      </div>
+      <div id="buttonsContainer">
+        <button id="save-fields" type="click">Save</button>
+        <button id="download" type="submit">Download</button>
+      </div>
+  </body>
+</html>
