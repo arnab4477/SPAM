@@ -1,0 +1,28 @@
+{
+  "name": "spam",
+  "version": "0.0.0",
+  "description": "'Superb PDF Adjustment Machine' or SPAM helps me visualize and rename PDF form fields",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "pdf",
+    "pdf viewer",
+    "fillable pdf form",
+    "pdf fields"
+  ],
+  "author": "Arnab Saha",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "multer": "^1.4.5-lts.1",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.2.67"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.1"
+  }
+}
