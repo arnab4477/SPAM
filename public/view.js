@@ -143,7 +143,6 @@ async function renderPDF() {
     const annotations = await page.getAnnotations();
 
     annotations.forEach((annotation) => {
-      // 'Tx' is for text fields
       const rect = annotation.rect;
 
       /**
@@ -175,18 +174,19 @@ async function renderPDF() {
         rect[3] - rect[1]
       );
 
-      if (annotation.fieldType === 'Tx') {
-        context.fillStyle = 'white';
-        context.font = `10px Arial`;
+      // 'Tx' is for text fields
+      // if (annotation.fieldType === 'Tx') {
+      context.fillStyle = 'white';
+      context.font = `10px Arial`;
 
-        context.fillText(
-          fieldName,
-          rect[0] + 2,
+      context.fillText(
+        fieldName,
+        rect[0] + 2,
 
-          // I don't know why this particular calculation works, it just does
-          (viewport.height - rect[1] + (viewport.height - rect[3])) / 2 + 4
-        );
-      }
+        // I don't know why this particular calculation works, it just does
+        (viewport.height - rect[1] + (viewport.height - rect[3])) / 2 + 4
+      );
+      // }
     });
   }
   if (fields.length) {
